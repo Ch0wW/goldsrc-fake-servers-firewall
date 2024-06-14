@@ -5,6 +5,9 @@ A repository listing all the IP address listing fake, bloaty servers, and create
 
 Since the SteamPIPE update in 2013, which would bring the GoldSrc's query system as the same as all Source-based games, Counter-Strike 1.6 suffered from an exploit that would flood the masterservers with fake servers, deceiving players by redirecting all of them to a single, central server. Their purposes would be to scam people with fake, and potentially steal players' SteamIDs to simulate fake "active players". 
 
+Here is a small example of how the serverlist looks in CS 1.6 :
+![A small example of fake servers](https://raw.githubusercontent.com/Ch0wW/goldsrc-fake-servers-firewall/main/assets/serverbrowser.png)
+
 This problem does not only target Counter-Strike 1.6, but also Counter-Strike: Source, Half-Life 2: Deathmatch, Team-Fortress 2, Left 4 Dead 2, and even Counter-Strike 2, which present the same problematic issues as CS 1.6.
 
 Despite being repeatedly reported on VALVe's Github repositories, and that the community insists it is a critical issue, **VALVe does not believe this is a problem, and is refusing to fix it since a whole decade**. On the contrary, according to them, their solution to prevent these from happening would simply to use a server token (GSLT) that you would generate along with the APPID to prove you made the server, as it has to be unique between each server. But, it only supports 3 games: TF2, CS2 and Garry's Mod, and does not fully fix the issue, especially on TF2's quickplay menu.
@@ -26,6 +29,8 @@ If you have doubts seeing a regular server or a fake server, you can quickly fin
 
 - Any server that has more than 32 players spots **is guaranteed** to be a fake server. GoldSRC can only support 32 players in a single server.
 - When querying a server you think is suspicious, don't hesitate to repeat that operation a few times. If the server name, map or the player counter repeatedly changes, it's a fake server that can be safely blocklisted.
+
+<video src="https://raw.githubusercontent.com/Ch0wW/goldsrc-fake-servers-firewall/main/assets/refresh_query.mp4" width="300" />
 
 # What about Source?
 
