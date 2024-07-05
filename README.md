@@ -43,9 +43,14 @@ If there's already an entry of our Firewall rule, it will regenerate with the ne
 If you have doubts seeing a regular server or a fake server, you can quickly find out with these quick checks:
 
 - Any server that has more than 32 players spots **is guaranteed** to be a fake server. GoldSRC can only support 32 players in a single server.
-- When querying a server you think is suspicious, don't hesitate to repeat that operation a few times. If the server name, map or the player counter repeatedly changes, it's a fake server that can be safely blocklisted.
+- Any server that has absurd players statistics (some players having more than 300 frags in less than 30 minutes) **is guaranteed** to be a fake server. You can even hit the refresh key repeatedly, and see absolutely new players with already a high score! 
+- When querying a server you think is suspicious, don't hesitate to repeat that operation a few times. If the server name, map or the player counter repeatedly changes, it's a fake server that can be safely blacklisted.
 
 <video src="https://raw.githubusercontent.com/Ch0wW/goldsrc-fake-servers-firewall/main/assets/refresh_query.mp4" width="300" />
+
+## How to report fake servers?
+
+**Please open an issue on Github, along with the IPs you've spotted!**
 
 ## What about Source?
 
