@@ -14,14 +14,19 @@ Despite being repeatedly reported on VALVe's Github repositories, and that the c
 
 To make matters worse, this problem has been recently extended in Half-Life, shortly after the 25th anniversary update, where almost 75% of the servers listed were redirected to a single static server. 
 
-Unfortunately for the community, and unlike any Source-based game, the GoldSRC's UI menu does not have any blacklisting options, meaning that blocking these fake servers within the game is **outright impossible**. 
+Unfortunately for the community, and unlike any Source-based game, the GoldSRC's serverbrowser does not have any blacklisting options, meaning that blocking these fake servers within the game is **outright impossible**. 
 
 # The Solution
 
-Sadly there isn't much to do engine-sided. The only solution to prevent seeing these IPs is to get the IPs of the fake servers, and block outgoing connections to these IPs with a firewall rule.
+Sadly, there isn't much to do engine-sided. The only solution to prevent seeing these fake servers is to get their IPs, and block outgoing connections to these IPs with a firewall rule.
 
 This project was thus made to block these servers directly through a rule on your Windows firewall, so that it gets immediately filtered by your system, resulting in more honest servers.
 
+# The only drawback
+
+The problem with blocking all of these fake servers is that VALVe isn't aware of this happening when sending them to the player. As a result, it might take a whole lot of time to display all servers. 
+
+We recommend you from adding any server to your favorites, so you can see them faster.
 
 # Running the script
 
@@ -31,11 +36,11 @@ Open a Powershell window as an administrator (WIN + X, then `Windows Powershell 
 Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/Ch0wW/goldsrc-fake-servers-firewall/main/BlockFakeServers.ps1'))
 ```
 
-One rule of thumb is to always look at the script before running it.
+**__One rule of thumb is to always look at the script before running it.__**
 
 In this project's case, it downloads a .json file containing a list of fake IPs, and creates an outbound firewall rule to block them.
 
-If there's already an entry of our Firewall rule, it will regenerate with the newest values.
+If there's already an entry of our Firewall rule, it will recreate it with the newest, updated values.
 
 # Addentum
 ## Spotting these fake servers
@@ -48,7 +53,7 @@ If you have doubts seeing a regular server or a fake server, you can quickly fin
 
 <video src="https://raw.githubusercontent.com/Ch0wW/goldsrc-fake-servers-firewall/main/assets/refresh_query.mp4" width="300" />
 
-## How to report fake servers?
+## How to report fake servers? Is there a false positive detected?
 
 **Please open an issue on Github, along with the IPs you've spotted!**
 
