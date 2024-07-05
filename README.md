@@ -30,7 +30,7 @@ We recommend you from adding any server to your favorites, so you can see them f
 
 # Running the script
 
-Open a Powershell window as an administrator (WIN + X, then `Windows Powershell (Admin)`)
+Open a Powershell window as an administrator (WIN + X, then `Windows Powershell (Admin)`). Copy and paste the following command, and run it :
 
 ```ps1
 Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/Ch0wW/goldsrc-fake-servers-firewall/main/BlockFakeServers.ps1'))
