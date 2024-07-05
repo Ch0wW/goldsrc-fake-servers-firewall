@@ -2,7 +2,7 @@
 
 $fw_rulename = "GoldSRC Fake IP Blocklist"
 
-Write-Host ("===== GoldSRC Fake IP =====")
+Write-Host ("===== GoldSRC Fake IP Blocklister =====")
 Write-Host ("- GitHub project: https://github.com/Ch0wW/goldsrc-fake-servers-firewall")
 Write-Host ("")
 Write-Host ("")
@@ -46,5 +46,7 @@ Write-Host ("")
 
 Write-Host ("Creating firewall rule '$fw_rulename'...")
 Write-Host ("")
-New-NetFirewallRule -DisplayName $fw_rulename -Direction Outbound -Action Block -RemoteAddress $iplist
+if (New-NetFirewallRule -DisplayName $fw_rulename -Direction Outbound -Action Block -RemoteAddress $iplist) {
+    Write-Host("Firewall rule created! Have fun!")
+}
 
