@@ -10,7 +10,7 @@ Here is a small example of how the serverlist looks in CS 1.6 :
 
 This problem does not only target Counter-Strike 1.6, but also Counter-Strike: Source, Half-Life 2: Deathmatch, Team-Fortress 2, Left 4 Dead 2, and even Counter-Strike 2, which present the same problematic issues as CS 1.6.
 
-Despite being repeatedly reported on VALVe's Github repositories, and that the community insists it is a critical issue, **VALVe does not believe this is a problem, and is refusing to fix it since a whole decade**. On the contrary, according to them, their solution to prevent these from happening would simply to use a server token (GSLT) that you would generate along with the APPID to prove you made the server, as it has to be unique between each server. But, it only supports 3 games: TF2, CS2 and Garry's Mod, and does not fully fix the issue, especially on TF2's quickplay menu.
+Despite being repeatedly reported on VALVe's Github repositories, and that the community insists it is a critical issue, **VALVe does not believe this is a problem, and is refusing to fix it since a whole decade**. On the contrary, according to them, their solution to prevent these from happening would simply to use a server token (GSLT) that you would generate along with the APPID to prove you made the server, as it has to be unique between each server. But, it only supports 3 games: TF2, CS2 and Garry's Mod, and does not fully fix the issue in the first place, especially on TF2's quickplay menu.
 
 To make matters worse, this problem has been recently extended in Half-Life, shortly after the 25th anniversary update, where almost 75% of the servers listed were redirected to a single static server. 
 
@@ -23,7 +23,22 @@ Sadly there isn't much to do engine-sided. The only solution to prevent seeing t
 This project was thus made to block these servers directly through a rule on your Windows firewall, so that it gets immediately filtered by your system, resulting in more honest servers.
 
 
-# Spotting these fake servers
+# Running the script
+
+Open a Powershell window as an administrator (WIN + X, then `Windows Powershell (Admin)`)
+
+```ps1
+Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/Ch0wW/goldsrc-fake-servers-firewall/main/BlockFakeServers.ps1'))
+```
+
+One rule of thumb is to always look at the script before running it.
+
+In this project's case, it downloads a .json file containing a list of fake IPs, and creates an outbound firewall rule to block them.
+
+If there's already an entry of our Firewall rule, it will regenerate with the newest values.
+
+# Addentum
+## Spotting these fake servers
 
 If you have doubts seeing a regular server or a fake server, you can quickly find out with these quick checks:
 
@@ -32,12 +47,12 @@ If you have doubts seeing a regular server or a fake server, you can quickly fin
 
 <video src="https://raw.githubusercontent.com/Ch0wW/goldsrc-fake-servers-firewall/main/assets/refresh_query.mp4" width="300" />
 
-# What about Source?
+## What about Source?
 
 Since the original scope of this project is GoldSRC games, we did not plan to include them on the list.
 
 However, the Source Engine includes the ability to blocklist IPs through a file. So, if you are looking for a similar solution for the Source engine, please check out this repository that does the job for you : https://github.com/Ballganda/css-server-blacklist
 
-# What about Linux / Steam Deck ?
+## Are you planning something similar for Linux / Steam Deck ?
 
 Considering the increasing number of Steam Deck users, this is something we plan creating in a near future.
