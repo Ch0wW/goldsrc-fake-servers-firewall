@@ -3,7 +3,8 @@
 $fw_rulename = "GoldSRC Fake IP Blocklist"
 
 Write-Host ("===== GoldSRC Fake IP Blocklister =====")
-Write-Host ("- GitHub project: https://github.com/Ch0wW/goldsrc-fake-servers-firewall")
+Write-Host ("- Main GitHub project: https://github.com/Ch0wW/goldsrc-fake-servers-firewall")
+Write-Host ("- Fork by Nambona890")
 Write-Host ("")
 Write-Host ("")
 
@@ -22,7 +23,7 @@ if (Get-NetFirewallRule -DisplayName $fw_rulename) {
 
 # Getting the list of all IPs 
 
-$jsonPath = 'https://raw.githubusercontent.com/Ch0wW/goldsrc-fake-servers-firewall/main/blacklisted_iplist.json'
+$jsonPath = 'https://raw.githubusercontent.com/nambona890/goldsrc-fake-servers-firewall/main/blacklisted_iplist.json'
 $json = (New-Object System.Net.WebClient).DownloadString($jsonPath) | ConvertFrom-Json
 
 $iplist = @()
@@ -49,4 +50,3 @@ Write-Host ("")
 if (New-NetFirewallRule -DisplayName $fw_rulename -Direction Outbound -Action Block -RemoteAddress $iplist) {
     Write-Host("Firewall rule created! Have fun!")
 }
-
